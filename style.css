@@ -1,0 +1,151 @@
+:root {
+    --gold: #ce8f08;
+    --dark: #111111;
+    --gray-bg: #f4f4f4;
+    --white: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Poppins', sans-serif; background: var(--gray-bg); color: #333; line-height: 1.6; }
+html { scroll-behavior: smooth; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* Header */
+header { background: var(--dark); color: white; position: sticky; top: 0; z-index: 1000; padding: 15px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+.nav { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 1.6rem; font-weight: 600; text-transform: uppercase; }
+.logo span { color: var(--gold); }
+.links { display: flex; list-style: none; align-items: center; }
+.links li { margin-left: 20px; }
+.links a { color: white; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+.links a:hover { color: var(--gold); }
+
+.search-container input {
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: 1px solid #444;
+    background: #222;
+    color: white;
+    width: 300px;
+    outline: none;
+}
+
+/* Hero */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('mrbg.gif') center/cover;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+.hero h1 { font-size: 3.5rem; letter-spacing: 2px; line-height: 1; }
+.cta-btn { background: var(--gold); color: white; text-decoration: none; padding: 12px 30px; border-radius: 5px; display: inline-block; margin-top: 20px; font-weight: 600; transition: 0.3s; }
+.cta-btn:hover { background: white; color: var(--dark); }
+
+/* Products Section */
+.section { padding: 80px 0; }
+.section-title { text-align: center; margin-bottom: 50px; }
+.section-title h2 { font-size: 2.2rem; text-transform: uppercase; }
+.section-title h2::after { content: ''; display: block; width: 50px; height: 3px; background: var(--gold); margin: 10px auto; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 25px; }
+.card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); position: relative; transition: 0.3s; text-align: center; }
+.card:hover { transform: translateY(-8px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+.card img { width: 100%; height: 180px; object-fit: contain; margin-bottom: 15px; border-radius: 5px; }
+.card h3 { font-size: 1.1rem; margin-bottom: 5px; }
+.card p { font-size: 0.85rem; color: #777; margin-bottom: 10px; }
+.price { display: block; font-weight: 600; font-size: 1.2rem; color: var(--dark); margin-bottom: 15px; }
+
+.card button { 
+    background: var(--dark); 
+    color: white; 
+    border: none; 
+    padding: 10px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    width: 100%; 
+    font-weight: 600; 
+    transition: 0.3s; 
+}
+.card button:hover { background: var(--gold); }
+
+/* Wishlist Heart */
+.wishlist { position: absolute; top: 15px; right: 15px; font-size: 1.4rem; cursor: pointer; color: #ddd; transition: 0.2s; }
+.wishlist.active { color: #ff4b5c; }
+
+/* Contact Section */
+.about-footer { background: #e9e9e9; padding: 70px 0; }
+.about-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 50px; align-items: center; }
+.contact-card { background: var(--dark); color: white; padding: 40px; border-radius: 15px; border-left: 5px solid var(--gold); }
+.contact-card h3 { color: var(--gold); margin-bottom: 20px; font-size: 1.5rem; }
+.contact-card p { margin-bottom: 10px; font-size: 0.95rem; }
+
+/* Modal Cart */
+.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); }
+.modal-content { background: white; margin: 5% auto; padding: 30px; width: 90%; max-width: 450px; border-radius: 12px; position: relative; }
+.close { position: absolute; right: 20px; top: 15px; font-size: 1.8rem; cursor: pointer; }
+#cart-items-list { max-height: 300px; overflow-y: auto; margin: 20px 0; }
+.cart-item { display: flex; justify-content: space-between; margin-bottom: 10px; padding-bottom: 5px; border-bottom: 1px solid #eee; }
+.cart-trigger { background: var(--gold); border: none; color: white; padding: 6px 16px; border-radius: 20px; cursor: pointer; font-weight: 600; }
+.checkout-btn { width: 100%; padding: 12px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: 600; margin-top: 15px; }
+
+footer { background: var(--dark); color: #777; text-align: center; padding: 30px 0; border-top: 1px solid #222; }
+/* --- NEW ANIMATIONS --- */
+
+/* 1. Hero Pop Animation */
+.animate-pop {
+    animation: popIn 1s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* 2. Typing Cursor Effect */
+.typing-text {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--gold);
+    min-height: 1.6em;
+}
+
+#dynamic-text::after {
+    content: "|";
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* 3. Floating Bike Images */
+.card img {
+    transition: transform 0.5s ease;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Pause float on hover so user can see details */
+.card:hover img {
+    animation-play-state: paused;
+    transform: scale(1.1);
+}
+
+/* 4. Scroll Reveal Animation (Applied via JS) */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
