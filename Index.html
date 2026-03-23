@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FixieHub | Premium Fixed Gear Shop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="hg.css">
+</head>
+<body>
+
+<header>
+    <div class="container nav">
+        <h1 class="logo" onclick="window.location.reload()" style="cursor:pointer">Fixie<span>Hub</span></h1>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search brands (e.g. Aventon)...">
+        </div>
+
+        <ul class="links" id="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#products">Bikes</a></li>
+            <li><a href="#accessories">Accessories</a></li>
+            <li><button class="cart-trigger" onclick="openCart()">Cart (<span id="cart-count">0</span>)</button></li>
+        </ul>
+        <div class="menu-toggle" id="mobile-menu"></div>
+    </div>
+</header>
+
+<div id="cart-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeCart()">&times;</span>
+        <h2>Your Shopping Cart</h2>
+        <div id="cart-items-list">
+            <p style="text-align:center; color:#888;">Your cart is empty.</p>
+        </div>
+        <hr>
+        <div class="cart-footer">
+            <p>Total: <strong>₱<span id="total-price">0</span></strong></p>
+            <button class="checkout-btn" onclick="processCheckout()">Checkout via WhatsApp/SMS</button>
+        </div>
+    </div>
+</div>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="animate-pop">RIDE FAST. RIDE FIXED.</h1>
+        <p class="typing-text">The best <span id="dynamic-text"></span></p>
+        <a href="#products" class="cta-btn animate-fade">Explore Shop</a>
+    </div>
+</section>
+
+<section id="products" class="container section">
+    <div class="section-title">
+        <h2>Fixed Gear Collection</h2>
+        <p>From entry-level commuters to pro-track frames.</p>
+    </div>
+
+    <div class="grid" id="product-grid">
+        <div class="card" data-name="Aventon Fixie">
+            <img src="Aventon.jpeg" alt="Aventon">
+            <span class="wishlist" onclick="toggleWishlist(this)">♡</span>
+            <h3>Aventon Fixie</h3>
+            <p>Lightweight urban ride</p>
+            <span class="price">₱18,500</span>
+            <button onclick="addToCart('Aventon Fixie', 18500)">Add to Cart</button>
+        </div>
+
+        <div class="card" data-name="State Bicycle Co.">
+            <img src="Byciclego.jpg" alt="State Bicycle">
+            <span class="wishlist" onclick="toggleWishlist(this)">♡</span>
+            <h3>State Bicycle Co.</h3>
+            <p>Premium steel frame</p>
+            <span class="price">₱22,000</span>
+            <button onclick="addToCart('State Bicycle Co.', 22000)">Add to Cart</button>
+        </div>
+
+        <div class="card" data-name="Unknown Bikes">
+            <img src="Unknown.jpg" alt="Unknown">
+            <span class="wishlist" onclick="toggleWishlist(this)">♡</span>
+            <h3>Unknown Bikes</h3>
+            <p>Track performance</p>
+            <span class="price">₱25,500</span>
+            <button onclick="addToCart('Unknown Bikes', 25500)">Add to Cart</button>
+        </div>
+
+        <div class="card" data-name="Engine11">
+            <img src="Engine11.jpg" alt="Engine11">
+            <span class="wishlist" onclick="toggleWishlist(this)">♡</span>
+            <h3>Engine11</h3>
+            <p>Pro-level frames</p>
+            <span class="price">₱30,000</span>
+            <button onclick="addToCart('Engine11', 30000)">Add to Cart</button>
+        </div>
+
+        <div class="card" data-name="Tsunami Bikes">
+            <img src="Tsunami.jpg" alt="Tsunami">
+            <span class="wishlist" onclick="toggleWishlist(this)">♡</span>
+            <h3>Tsunami Bikes</h3>
+            <p>Strong and stylish</p>
+            <span class="price">₱20,000</span>
+            <button onclick="addToCart('Tsunami Bikes', 20000)">Add to Cart</button>
+        </div>
+
+        <div class="card" data-name="6KU Bikes">
+            <img src="6ku.jpg" alt="6KU">
+            <span class="wishlist" onclick="toggleWishlist(this)">♡</span>
+            <h3>6KU Bikes</h3>
+            <p>Budget friendly</p>
+            <span class="price">₱15,000</span>
+            <button onclick="addToCart('6KU Bikes', 15000)">Add to Cart</button>
+        </div>
+
+        <div class="card" data-name="Critical Cycles">
+            <img src="critcycle.jpg" alt="Critical">
+            <span class="wishlist" onclick="toggleWishlist(this)">♡</span>
+            <h3>Critical Cycles</h3>
+            <p>Urban commuting</p>
+            <span class="price">₱17,500</span>
+            <button onclick="addToCart('Critical Cycles', 17500)">Add to Cart</button>
+        </div>
+
+        <div class="card" data-name="Pure Fix">
+            <img src="purefix.jpg" alt="Pure Fix">
+            <span class="wishlist" onclick="toggleWishlist(this)">♡</span>
+            <h3>Pure Fix</h3>
+            <p>Minimalist design</p>
+            <span class="price">₱16,800</span>
+            <button onclick="addToCart('Pure Fix', 16800)">Add to Cart</button>
+        </div>
+
+        <div class="card" data-name="Golden Cycles">
+            <img src="golden.jpg" alt="Golden">
+            <span class="wishlist" onclick="toggleWishlist(this)">♡</span>
+            <h3>Golden Cycles</h3>
+            <p>Classic feel</p>
+            <span class="price">₱19,200</span>
+            <button onclick="addToCart('Golden Cycles', 19200)">Add to Cart</button>
+        </div>
+
+        <div class="card" data-name="FabricBike">
+            <img src="fab.jpg" alt="FabricBike">
+            <span class="wishlist" onclick="toggleWishlist(this)">♡</span>
+            <h3>FabricBike</h3>
+            <p>European style</p>
+            <span class="price">₱23,000</span>
+            <button onclick="addToCart('FabricBike', 23000)">Add to Cart</button>
+        </div>
+    </div>
+</section>
+
+<section id="accessories" class="container section">
+    <div class="section-title">
+        <h2>Essential Accessories</h2>
+    </div>
+    <div class="grid">
+        <div class="card" data-name="Helmet">
+            <img src="helmet.jpg" alt="Helmet">
+            <span class="wishlist" onclick="toggleWishlist(this)">♡</span>
+            <h3>Cycling Helmet</h3>
+            <span class="price">₱2,500</span>
+            <button onclick="addToCart('Cycling Helmet', 2500)">Add to Cart</button>
+        </div>
+
+        <div class="card" data-name="Tool Kit">
+            <img src="tool.jpg" alt="Tool Kit">
+            <span class="wishlist" onclick="toggleWishlist(this)">♡</span>
+            <h3>Bike Tool Kit</h3>
+            <span class="price">₱1,200</span>
+            <button onclick="addToCart('Bike Tool Kit', 1200)">Add to Cart</button>
+        </div>
+
+        <div class="card" data-name="Lights">
+            <img src="light.jpg" alt="Lights">
+            <span class="wishlist" onclick="toggleWishlist(this)">♡</span>
+            <h3>Front & Rear Lights</h3>
+            <span class="price">₱850</span>
+            <button onclick="addToCart('Front & Rear Lights', 850)">Add to Cart</button>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="about-footer">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-text">
+                <h2>The FixieHub Standard</h2>
+                <p>FixieHub is dedicated to the fixed-gear culture. We believe in simplicity, speed, and the connection between the rider and the road. Every bike we list is selected for its engineering and aesthetic appeal.</p>
+            </div>
+            <div class="contact-card">
+                <h3>Contact FixieHub</h3>
+                <p><strong>Instagram:</strong> @fixiehub</p>
+                <p><strong>Hotline:</strong> 0987-656-523</p>
+                <p><strong>Location:</strong> Manila, Philippines</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>© 2026 FixieHub. Stay Fixed.</p>
+    </div>
+</footer>
+
+<script src="bhf.js"></script>
+</body>
+</html>
